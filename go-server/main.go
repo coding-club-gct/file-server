@@ -1,6 +1,7 @@
 package main
 
 import (
+	"go-server/database"
 	route "go-server/src/routes"
 	"os"
 
@@ -12,7 +13,7 @@ import (
 func main () {
     godotenv.Load()
     PORT := os.Getenv("PORT")
-
+    database.Conn()
     app := fiber.New(); route.Setup(app)
     app.Listen(":"+PORT)
 }
