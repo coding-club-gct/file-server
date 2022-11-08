@@ -4,8 +4,7 @@ import "gorm.io/gorm"
 
 type File struct {
     gorm.Model
-    CatName string
-    FileName string `json:"fileName"`
-    FilePath string `json:"filePath"`
-    FileBanner string `json:"fileBanner"`
+    CatID uint `json:"cat_id"`
+    Name string `json:"fileName"`
+    Banner string `json:"fileBanner"`
 }

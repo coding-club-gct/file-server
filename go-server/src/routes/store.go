@@ -9,5 +9,17 @@ import (
 
 
 func HandleStore (store fiber.Router) {
-    store.Post("/addFiles", controller.AddFiles)
+
+    // categories
+    store.Get("/all-categories-full", func (c *fiber.Ctx) error {
+	return controller.GetAllCategories(c, true)
+    })
+    store.Get("/all-categories", func (c *fiber.Ctx) error {
+	return controller.GetAllCategories(c, false)
+    })
+    store.Post("/create-categories", controller.CreateCategories)
+
+    //files
+    store.Get("/all-files", controller.GetFiles)
+    store.Post("/add-files", controller.AddFiles)
 }

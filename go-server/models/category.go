@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type Category struct {
     gorm.Model
-    CatName string `json:"catName" gorm:"unique"`
-    CatBanner string `json:"catBanner"`
-    Files []File `gorm:"foreignKey:FileName"`
+    Name string `json:"name" gorm:"unique"`
+    Banner string `json:"banner"`
+    Files []File `json:"files" gorm:"foreignKey:CatID"`
 }
